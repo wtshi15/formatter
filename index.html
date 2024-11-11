@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Format Tool</title>
+  <style>
+    /* Basic page styling */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      overflow-y: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: #333;
+      background-color: #f4f4f4;
+    }
+
+    /* Content area styling */
+    #content {
+      width: 80%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      background-color: #fff;
+      height: 70vh;
+      overflow-y: auto;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: left;
+      white-space: pre-wrap;
+    }
+  </style>
+  <script>
+    // Function to update content with pasted text
+    function handlePaste(event) {
+      event.preventDefault();
+      const paste = (event.clipboardData || window.clipboardData).getData('text');
+      document.getElementById('content').textContent = paste;
+    }
+
+    // Attach paste event listener to the entire document
+    document.addEventListener('paste', handlePaste);
+  </script>
+</head>
+<body>
+  <!-- Content area for displaying the formatted text -->
+  <div id="content">Paste your text here...</div>
+</body>
+</html>
